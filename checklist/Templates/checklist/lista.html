@@ -1,5 +1,6 @@
 {% for check in checks %}
 <div>
-   {{ check.evento }} - {{ check.datacriacao }} - {{ check.dataatualizacao }} - {{ check.observacao }} - {{ check.estado }}
+   <a href="checkedit/{{ check.id }}">{{ check.evento }}</a> - {{ check.datacriacao }} - {{ check.dataatualizacao }} - {{ check.observacao }} - {{ check.estado }}
 </div>
+
 {% endfor %}

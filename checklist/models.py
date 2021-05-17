@@ -6,12 +6,23 @@ ESTADO_CHOICES = (
 )
 
 class Evento(models.Model):
-
+    NIVEL_CHOICES = (
+        ('basico', 'Básico'),
+        ('medio', 'Médio'),
+        ('avanc', 'Avançado'),
+    )
     nome = models.CharField(max_length=255, null=False)
     estado = models.CharField(max_length=7,
                               choices=ESTADO_CHOICES,
                               default='ativo',
                               )
+    nivel = models.CharField(max_length=6,
+                             choices=NIVEL_CHOICES,
+                             default='basico',
+                             )
+    tarefa = models.TextField(null=True)
+    object = models.Manager()
+
     def __str__(self):
         return self.nome
 
@@ -32,3 +43,4 @@ class Check(models.Model):
 
     def __int__(self):
         return self.evento
+
